@@ -1,18 +1,355 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-BR" class="motion-safe:scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link para o CSS gerado pelo Tailwind -->
-    <link href="./css/output.css" rel="stylesheet">
-    <title>Meu Projeto</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aeris Linhas Aéreas</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Figtree', 'ui-sans-serif', 'system-ui', 'Helvetica Neue', 'Arial', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<style>
+:root {
+  --cor-fundo: #e3e4e7;
+  --cor-branco: #ffffff;
+  --cor-preto: #000000;
+  --azul-hover: #0284c7;
+  --azul-ceu: #0284c7;
+  --azul-profundo: #082f49;
+  --branco-transparente: rgba(255, 255, 255, 0.2);
+  --branco-hover: rgba(255, 255, 255, 0.3);
+  --preto-borda: rgba(0, 0, 0, 0.05);
+
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-preto);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+.link-navbar {
+  color: var(--cor-preto);
+  transition: color 300ms ease;
+}
+
+.link-navbar:hover {
+  color: var(--azul-hover);
+}
+
+.bg-padrao {
+  background-color: var(--cor-branco);
+}
+
+.texto-padrao {
+  color: var(--cor-preto);
+}
+
+.borda-navbar {
+  border-color: var(--preto-borda);
+}
+</style>
 </head>
 
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <h1 class="text-4xl font-bold text-blue-600 drop-shadow">
-        
-    </h1>
-</body>
+<body class="font-sans font-normal antialiased">
 
+<!-- NAVBAR -->
+<header class="fixed inset-x-0 top-0 z-50 border-b shadow-sm bg-white"
+        style="background-color: var(--cor-branco); border-color: var(--preto-borda);">
+  <nav class="mx-auto flex max-w-[1400px] items-center justify-center px-6 py-5" aria-label="Navegação principal">
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:gap-x-12">
+      <a href="#inicio" class="link-navbar text-sm font-light tracking-wide">Início</a>
+      <a href="#apresentacao" class="link-navbar text-sm font-light tracking-wide">Apresentação</a>
+      <a href="#destinos" class="link-navbar text-sm font-light tracking-wide">Destinos</a>
+      <a href="#conforto" class="link-navbar text-sm font-light tracking-wide">Conforto</a>
+    </div>
+  </nav>
+</header>
+
+<main class="mx-auto max-w-[1400px] space-y-3 p-3 pt-24 sm:space-y-5 sm:p-5 sm:pt-24">
+
+<!-- INÍCIO -->
+<section id="inicio" class="relative overflow-hidden rounded-[1.5rem] text-white sm:rounded-[2rem]">
+  <img src="./img/aviao_inicio.jpg" alt="Avião da Aeris voando acima das nuvens" class="absolute inset-0 h-full w-full object-cover object-[25%_50%] lg:object-left">
+  <div class="absolute inset-0 bg-gradient-to-t from-sky-950/80 via-sky-950/25 to-transparent lg:from-sky-950/55 lg:via-transparent"></div>
+
+  <div class="relative z-10 flex min-h-[44rem] flex-col justify-end gap-8 px-6 pb-8 pt-28 lg:min-h-[46rem] lg:justify-between lg:px-10 lg:pb-10">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+      <h1 class="max-w-3xl text-4xl leading-[1.05] text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
+        Cada voo precisa de um toque de precisão
+      </h1>
+      <p class="max-w-sm text-2xl leading-relaxed text-white drop-shadow-xl lg:mt-4">
+        A Aeris se dedica a redefinir a aviação moderna, com segurança de nível mundial, eficiência sem atrito e uma experiência a bordo guiada por inovação e precisão.
+      </p>
+    </div>
+
+    <div class="flex w-full justify-center gap-3">
+      <a href="#apresentacao"
+         class="rounded-full px-8 py-4 text-base text-white backdrop-blur transition-colors duration-300"
+         style="background-color: var(--branco-transparente);"
+         onmouseover="this.style.backgroundColor='var(--branco-hover)'"
+         onmouseout="this.style.backgroundColor='var(--branco-transparente)'">
+        Conheça a Aeris
+      </a>
+
+      <a href="#destinos"
+         class="rounded-full px-8 py-4 text-base transition-colors duration-300"
+         style="background-color: var(--cor-branco); color: var(--cor-preto);"
+         onmouseover="this.style.opacity='0.9'"
+         onmouseout="this.style.opacity='1'">
+        Ver destinos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APRESENTAÇÃO -->
+<section id="apresentacao" class="rounded-[1.5rem] bg-white p-6 text-black sm:rounded-[2rem] sm:p-10 lg:p-16"
+         style="background-color: var(--cor-branco); color: var(--cor-preto);">
+  <div class="grid lg:gap-16">
+    <p class="text-sm">Liderando o futuro das viagens aéreas</p>
+    <div>
+      <h2 class="text-3xl leading-tight sm:text-4xl lg:text-5xl">
+        Com uma base sólida em engenharia e paixão por explorar, conectamos pessoas e destinos ao redor do mundo.
+      </h2>
+      <p class="mt-10 max-w-xl text-base leading-relaxed">
+        Da tecnologia de nossas aeronaves aos rigorosos padrões de segurança e ao serviço de bordo, cada detalhe reflete nosso compromisso com a aviação moderna. Nossa frota opera nos principais hubs globais, com uma equipe internacional de especialistas unida por uma ideia: tornar o voo mais inteligente, seguro e significativo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINOS TURÍSTICOS -->
+<section id="destinos" class="rounded-[1.5rem] bg-white p-5 text-black sm:rounded-[2rem] sm:p-8 lg:p-10"
+         style="background-color: var(--cor-branco); color: var(--cor-preto);">
+  <div class="mb-8 max-w-2xl">
+    <h2 class="text-3xl leading-tight sm:text-4xl">Explore a beleza do nosso planeta</h2>
+    <p class="mt-3 text-base leading-relaxed">
+      Destinos para sair do mapa e entrar na história. Veja como é viajar com a Aeris até cada um deles.
+    </p>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <article class="relative flex min-h-[26rem] overflow-hidden rounded-2xl text-white">
+      <img src="./img/turistico1.jpg" alt="Coliseu de Roma ao entardecer" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+      <div class="relative z-10 mt-auto p-5">
+        <h3 class="text-xl text-white">Coliseu</h3>
+        <p class="mt-1 flex items-center gap-1.5 text-sm text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          Roma, Itália
+        </p>
+      </div>
+    </article>
+
+    <article class="relative flex min-h-[26rem] overflow-hidden rounded-2xl text-white">
+      <img src="./img/turistico2.jpg" alt="Ruínas de Machu Picchu entre montanhas" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+      <div class="relative z-10 mt-auto p-5">
+        <h3 class="text-xl text-white">Machu Picchu</h3>
+        <p class="mt-1 flex items-center gap-1.5 text-sm text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          Cusco, Peru
+        </p>
+      </div>
+    </article>
+
+    <article class="relative flex min-h-[26rem] overflow-hidden rounded-2xl text-white">
+      <img src="./img/turistico3.jpg" alt="Pirâmide de vidro do Museu do Louvre" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+      <div class="relative z-10 mt-auto p-5">
+        <h3 class="text-xl text-white">Museu do Louvre</h3>
+        <p class="mt-1 flex items-center gap-1.5 text-sm text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          Paris, França
+        </p>
+      </div>
+    </article>
+
+    <article class="relative flex min-h-[26rem] overflow-hidden rounded-2xl text-white">
+      <img src="./img/turistico4.jpg" alt="Baía com águas azuis e falésias em Zakynthos" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+      <div class="relative z-10 mt-auto p-5">
+        <h3 class="text-xl text-white">Praia do Naufrágio</h3>
+        <p class="mt-1 flex items-center gap-1.5 text-sm text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          Zakynthos, Grécia
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- INFRAESTRUTURA E CONFORTO -->
+<section id="conforto" class="rounded-[1.5rem] bg-white p-6 text-black sm:rounded-[2rem] sm:p-10 lg:p-12"
+         style="background-color: var(--cor-branco); color: var(--cor-preto);">
+  <div class="grid gap-10 lg:grid-cols-2 lg:gap-12">
+    <div class="flex flex-col gap-8 lg:justify-between">
+      <div>
+        <h2 class="max-w-xl text-3xl leading-tight sm:text-4xl lg:text-5xl">
+          Cada viagem é leve e refinada. Da atmosfera da cabine ao serviço, elevamos o voo moderno.
+        </h2>
+        <p class="mt-5 text-sm">Infraestrutura e conforto para viajantes exigentes</p>
+      </div>
+
+      <figure class="relative overflow-hidden rounded-2xl">
+        <img src="./img/dentro_aviao.webp" alt="Corredor da cabine da Aeris com fileiras de poltronas" class="aspect-[4/3] w-full object-cover">
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pt-12">
+          <figcaption class="text-sm text-white">Cabine Aeris</figcaption>
+        </div>
+      </figure>
+    </div>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:content-end">
+      <div>
+        <p class="text-sm">01</p>
+        <h3 class="mt-2 text-lg">Conforto que redefine cada milha</h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          Nossas cabines criam um ambiente calmo e espaçoso, com poltronas largas, filtragem avançada do ar, pressurização otimizada e iluminação ambiente que muda ao longo do voo.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm">02</p>
+        <h3 class="mt-2 text-lg">Infraestrutura moderna</h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          Aeronaves revisadas com rigor, bagageiros amplos, corredor livre para embarque rápido e manutenção feita por equipes certificadas em cada base.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm">03</p>
+        <h3 class="mt-2 text-lg">Conectado e entretido</h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          Wi-Fi a bordo, tomadas junto às poltronas e uma seleção de filmes, músicas e jogos para o tempo passar leve, do embarque ao pouso.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm">04</p>
+        <h3 class="mt-2 text-lg">Hospitalidade com carinho e precisão</h3>
+        <p class="mt-2 text-sm leading-relaxed">
+          Uma tripulação treinada para ouvir, antecipar necessidades e cuidar de cada detalhe, com refeições frescas e atendimento atencioso em todas as classes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer class="mx-auto max-w-[1400px] px-3 pb-3 sm:px-5 sm:pb-5">
+  <div class="relative overflow-hidden rounded-[1.5rem] text-white sm:rounded-[2rem]">
+    <img src="./img/frente_final.jpg" alt="" class="absolute inset-0 h-full w-full object-cover">
+    <div class="absolute inset-0" style="background-color: color-mix(in srgb, var(--azul-ceu) 50%, transparent);"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-sky-950/40 to-transparent"></div>
+
+    <div class="relative z-10 flex min-h-[40rem] flex-col justify-between gap-12 px-6 pt-8 sm:px-10 lg:min-h-[42rem]">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1fr_1fr_1.3fr]">
+        <div>
+          <h3 class="text-sm text-white">Empresa</h3>
+          <ul class="mt-4 space-y-3 text-sm text-white">
+            <li><a href="#apresentacao" class="hover:underline">Sobre nós</a></li>
+            <li><a href="#inicio" class="hover:underline">Nossa frota</a></li>
+            <li><a href="#conforto" class="hover:underline">Experiência a bordo</a></li>
+            <li><a href="#" class="hover:underline">Segurança e confiabilidade</a></li>
+            <li><a href="#" class="hover:underline">Carreiras</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm text-white">Serviços</h3>
+          <ul class="mt-4 space-y-3 text-sm text-white">
+            <li><a href="#" class="hover:underline">Viagens corporativas</a></li>
+            <li><a href="#" class="hover:underline">Carga e logística</a></li>
+            <li><a href="#" class="hover:underline">Voos fretados</a></li>
+            <li><a href="#destinos" class="hover:underline">Destinos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm text-white">Suporte</h3>
+          <ul class="mt-4 space-y-3 text-sm text-white">
+            <li><a href="#" class="hover:underline">Fale conosco</a></li>
+            <li><a href="#" class="hover:underline">Central de ajuda</a></li>
+            <li><a href="#" class="hover:underline">Perguntas frequentes</a></li>
+            <li><a href="#" class="hover:underline">Acessibilidade</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:text-right">
+          <h3 class="text-2xl text-white sm:text-3xl">Receba as novidades da Aeris</h3>
+          <p class="mt-3 text-sm leading-relaxed text-white">
+            Assine a newsletter para saber de novas rotas, inovações na frota e promoções exclusivas.
+          </p>
+
+          <form id="news" class="mt-5 flex items-center gap-2 rounded-full p-1.5 backdrop-blur"
+                style="background-color: var(--branco-transparente);">
+            <label for="email" class="sr-only">E-mail</label>
+            <input id="email" type="email" required placeholder="Seu e-mail"
+                   class="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm text-white placeholder-white/80 focus:outline-none">
+            <button type="submit" class="rounded-full px-5 py-2 text-sm transition-opacity duration-300"
+                    style="background-color: var(--cor-branco); color: var(--cor-preto);"
+                    onmouseover="this.style.opacity='0.9'"
+                    onmouseout="this.style.opacity='1'">
+              Assinar
+            </button>
+          </form>
+
+          <p class="mt-3 text-xs text-white">
+            Respeitamos sua privacidade. Sem spam, só novidades que importam.
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-5 flex flex-col gap-3 text-sm text-white sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2026 Aeris Linhas Aéreas</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:underline">Instagram</a>
+          <a href="#" class="hover:underline">LinkedIn</a>
+          <a href="#" class="hover:underline">Facebook</a>
+        </div>
+        <div class="flex gap-5">
+          <a href="#" class="hover:underline">Privacidade</a>
+          <a href="#" class="hover:underline">Termos e condições</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
